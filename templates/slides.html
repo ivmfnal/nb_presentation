@@ -1,0 +1,23 @@
+<html>
+<head>
+        <link rel="stylesheet" href="highlight/styles/xcode.min.css">
+        <script src="highlight/highlight.min.js"></script>
+        <link rel="stylesheet" href="pygments.css">
+</head>
+<body>
+        {% for cell in cells %}
+                {% if cell.cell_type == "code" %}
+                        <section class="code">
+                                <pre>
+                                        <code class="language-python">{{ cell.source }}</code>
+                                </pre>
+                        </section>
+                {% elif cell.cell_type == "markdown" %}
+                        <section class="markdown">
+                                {{ cell.source }}
+                        </section>
+                {% endif %}
+        {% endfor %}
+        <script>hljs.highlightAll();</script>
+</body>
+</html>
